@@ -1,26 +1,449 @@
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
 @import "tailwindcss";
 
+/* =========================================
+   KRIYALAYA — PREMIUM INSTITUTIONAL THEME
+   Forest Green | Ivory | Burgundy | Gold
+========================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+
+  --nexora-green: #0F4933;
+  --nexora-green-dark: #0B3828;
+  --nexora-green-light: #EAF0E8;
+
+  --nexora-ivory: #FDFBF7;
+  --nexora-white: #FFFFFF;
+  --nexora-beige: #F3EFE5;
+
+  --nexora-burgundy: #5A1827;
+  --nexora-burgundy-light: #F5E9EC;
+
+  --nexora-gold: #C5A059;
+  --nexora-gold-light: #F5EEDC;
+
+  --nexora-text: #2B1E1F;
+  --nexora-muted: #81796E;
+  --nexora-border: #E5DEC9;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--nexora-ivory);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--nexora-ivory);
+  color: var(--nexora-text);
+  font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo-mark {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  font-size: 25px;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--nexora-gold);
+  background: var(--nexora-green);
+  border: 1px solid var(--nexora-gold);
+  box-shadow: 0 4px 15px #0F493322;
+  transform: skew(-5deg);
+}
+
+.small-logo {
+  width: 34px;
+  height: 34px;
+  font-size: 19px;
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.nav-link {
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--nexora-gold);
+}
+
+.section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--nexora-green);
+}
+
+/* =========================================
+   TYPOGRAPHY
+========================================= */
+
+.gradient-text {
+  background: linear-gradient(
+    100deg,
+    var(--nexora-green),
+    var(--nexora-burgundy),
+    var(--nexora-gold)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+h1, h2, h3, h4 {
+  color: inherit;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.primary-button,
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 9px;
+  padding: 13px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.25s ease;
+  cursor: pointer;
+}
+
+.primary-button {
+  color: white;
+  background: var(--nexora-burgundy);
+  border: 1px solid var(--nexora-burgundy);
+  box-shadow: 0 5px 15px #5A182720;
+}
+
+.primary-button:hover {
+  background: var(--nexora-green);
+  border-color: var(--nexora-green);
+  transform: translateY(-2px);
+}
+
+.secondary-button {
+  color: var(--nexora-green);
+  border: 1px solid var(--nexora-border);
+  background: var(--nexora-white);
+}
+
+.secondary-button:hover {
+  border-color: var(--nexora-gold);
+  background: var(--nexora-gold-light);
+}
+
+/* =========================================
+   HERO EMBLEM
+========================================= */
+
+.hero-emblem {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 220px;
+  height: 250px;
+  border: 1px solid var(--nexora-gold);
+  border-radius: 35px;
+  background: linear-gradient(
+    145deg,
+    var(--nexora-green),
+    var(--nexora-green-dark)
+  );
+  box-shadow:
+    0 15px 40px #0F493322,
+    inset 0 0 45px #C5A05915;
+  transform: rotate(-8deg);
+}
+
+.hero-emblem::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px solid #C5A05966;
+  border-radius: 27px;
+}
+
+.hero-emblem span {
+  font-size: 160px;
+  line-height: 1;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--nexora-gold);
+}
+
+/* =========================================
+   BACKGROUND EFFECTS
+========================================= */
+
+.ambient {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(130px);
+  pointer-events: none;
+  opacity: 0.10;
+}
+
+.ambient-one {
+  top: 100px;
+  left: -200px;
+  background: var(--nexora-green);
+}
+
+.ambient-two {
+  top: 350px;
+  right: -200px;
+  background: var(--nexora-gold);
+}
+
+.hero-orbit {
+  position: absolute;
+  border: 1px solid #C5A05955;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.orbit-one {
+  inset: 4%;
+  animation: rotate 30s linear infinite;
+}
+
+.orbit-two {
+  inset: 14%;
+  border-color: #0F493344;
+  animation: rotate 24s linear infinite reverse;
+}
+
+/* =========================================
+   GLASS CHIPS
+========================================= */
+
+.glass-chip {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 14px;
+  border: 1px solid var(--nexora-border);
+  border-radius: 10px;
+  background: #FDFBF7e8;
+  backdrop-filter: blur(15px);
+  font-size: 9px;
+  letter-spacing: 0.13em;
+  color: var(--nexora-green);
+  box-shadow: 0 10px 30px #0F49330c;
+  animation: float 5s ease-in-out infinite;
+}
+
+/* =========================================
+   MODULE CARDS
+========================================= */
+
+.module-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 270px;
+  padding: 30px;
+  border: 1px solid var(--nexora-border);
+  border-radius: 16px;
+  background: var(--nexora-white);
+  transition: 0.3s ease;
+}
+
+.module-card::after {
+  content: "";
+  position: absolute;
+  right: -90px;
+  bottom: -140px;
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  filter: blur(75px);
+  opacity: 0.12;
+  background: var(--nexora-gold);
+}
+
+.module-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--nexora-gold);
+  box-shadow: 0 15px 35px #0F493312;
+}
+
+.module-green:hover,
+.module-burgundy:hover,
+.module-gold:hover {
+  border-color: var(--nexora-gold);
+}
+
+.module-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--nexora-border);
+  border-radius: 12px;
+  background: var(--nexora-green-light);
+  color: var(--nexora-green);
+}
+
+.module-green .module-icon {
+  color: var(--nexora-green);
+}
+
+.module-gold .module-icon {
+  color: var(--nexora-gold);
+}
+
+.module-burgundy .module-icon {
+  color: var(--nexora-burgundy);
+}
+
+/* =========================================
+   FORMS
+========================================= */
+
+.form-label {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--nexora-green);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.form-input {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--nexora-border);
+  border-radius: 9px;
+  background: var(--nexora-white);
+  padding: 12px 14px;
+  color: var(--nexora-text);
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  border-color: var(--nexora-green);
+  box-shadow: 0 0 0 3px #0F493312;
+}
+
+.form-input::placeholder {
+  color: var(--nexora-muted);
+}
+
+.form-input option {
+  background: var(--nexora-white);
+  color: var(--nexora-text);
+}
+
+.form-input[type="date"],
+.form-input[type="time"] {
+  color-scheme: light;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 640px) {
+  .hero-emblem {
+    width: 160px;
+    height: 185px;
+  }
+
+  .hero-emblem span {
+    font-size: 115px;
+  }
+
+  .glass-chip {
+    padding: 9px;
+    font-size: 7px;
+  }
+
+  .module-card {
+    padding: 23px;
+  }
+}
+
+/* =========================================
+   SHARED THEME UTILITIES
+========================================= */
+
+.nexora-page {
+  min-height: 100vh;
+  background: var(--nexora-ivory);
+  color: var(--nexora-text);
+}
+
+.nexora-sidebar {
+  background: var(--nexora-green);
+  color: white;
+}
+
+.nexora-card {
+  background: var(--nexora-white);
+  border: 1px solid var(--nexora-border);
+  border-radius: 14px;
+}
+
+.nexora-burgundy {
+  background: var(--nexora-burgundy);
+  color: white;
+}
+
+.nexora-gold {
+  color: var(--nexora-gold);
+}
+h1, h2, h3, h4, .serif-heading {
+  font-family: 'EB Garamond', Georgia, serif;
 }
